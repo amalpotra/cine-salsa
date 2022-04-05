@@ -1,0 +1,18 @@
+.filter-button {
+  height: 33px;
+  min-width: 90px;
+  color: #fff;
+  background-color: #777;
+  border-radius: 2px;
+  line-height: 0;
+
+  &:active {
+    transform: scale(0.99);
+  }
+}
+
+.active {
+  background-color: #fff;
+  color: #111;
+  box-shadow: 0 0 5px #949494;
+}

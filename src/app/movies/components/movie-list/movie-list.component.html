@@ -1,0 +1,25 @@
+<div class="container pt-4 my-5">
+  <ng-container *ngIf="getMovies().length; else fallback_message">
+    <app-filter-bar [filterBy]="'Rating'">
+      <app-filter-button *ngFor="let filterBy of [7, 5, 3]; let index = index" [title]="'>' + filterBy"
+        (filter)="filterMoviesByRating(filterBy); selectedFilter = index" (deFilter)="deFilterMovies()"
+        [isActive]="index === selectedFilter">
+      </app-filter-button>
+    </app-filter-bar>
+    <div class=" d-flex flex-wrap justify-content-center">
+      <ng-container *ngFor="let movie of getMovies()">
+        <app-movie-card *ngIf="movie.isVisible" [movie]="movie"></app-movie-card>
+      </ng-container>
+    </div>
+  </ng-container>
+</div>
+
+<ng-template #fallback_message>
+  <div class="d-flex flex-column align-items-center mt-4">
+    <span class="fw-bold display-4">Oh no!</span>
+    <div class="fs-5">It's so lonely here</div>
+    <a href="/" class="link-light text-decoration-none fs-6 mt-2">
+      <fa-icon [icon]="faArrowsRotate" class="refresh-btn"></fa-icon> Revive
+    </a>
+  </div>
+</ng-template>

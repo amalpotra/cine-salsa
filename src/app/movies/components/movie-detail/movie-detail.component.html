@@ -1,0 +1,16 @@
+<ng-container *ngIf="getMovie(); let movie; else fallback_message">
+    <div class="row mt-5 pt-5">
+        <div class="col-6">.col-6</div>
+        <div class="col-6">.col-6</div>
+    </div>
+</ng-container>
+
+<ng-template #fallback_message>
+    <div class="d-flex flex-column align-items-center mt-5 pt-5">
+        <span class="fw-bold display-4">Oh no!</span>
+        <div class="fs-5">You seeem to be lost</div>
+        <a routerLink="/movies" class="link-light text-decoration-none fs-6 mt-2 back-btn">
+            <fa-icon [icon]="faArrowLeft"></fa-icon> Reroute
+        </a>
+    </div>
+</ng-template>

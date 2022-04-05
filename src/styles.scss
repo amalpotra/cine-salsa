@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  background-color: #181a1b !important;
+  color: #fff !important;
+}
+.back-btn {
+  transition: word-spacing 150ms ease;
+  &:hover {
+    word-spacing: 5px;
+  }
+}
