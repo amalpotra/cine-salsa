@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import MovieResponse from '../../../movies/models/movieResponse';
@@ -8,11 +8,14 @@ import MovieResponse from '../../../movies/models/movieResponse';
   providedIn: 'root',
 })
 export class FetchContentService {
-  private apiBaseURL: string = environment.apiBaseURL;
+  private apiKey: string = environment.apiKey;
+  private apiMovieURL: string = environment.apiMovieURL;
 
   constructor(private http: HttpClient) {}
 
   getMovies(): Observable<MovieResponse> {
-    return this.http.get<MovieResponse>(this.apiBaseURL);
+    return this.http.get<MovieResponse>(this.apiMovieURL, {
+      params: { api_key: this.apiKey },
+    });
   }
 }

@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  apiBaseURL:
-    'https://api.themoviedb.org/3/discover/movie?api_key=35dc3190c1e2fe841d84b3b96ad1fc2b',
+  apiKey: '35dc3190c1e2fe841d84b3b96ad1fc2b',
+  apiMovieURL: 'https://api.themoviedb.org/3/discover/movie',
   apiPosterURL: 'http://image.tmdb.org/t/p/',
 };
 
