@@ -8,16 +8,28 @@ import MovieResponse from '../../models/movieResponse';
 })
 export class MovieService {
   private movies: Movie[] = [];
+  private fetching: boolean = false;
 
   constructor(private fetchContentService: FetchContentService) {
-    this.fetchContentService.getMovies().subscribe(
-      (response: MovieResponse) =>
-        (this.movies = response.results.map((movie: Movie) => ({
+    // set loading status
+    this.fetching = true;
+
+    this.fetchContentService
+      .getMovies()
+      .subscribe((response: MovieResponse) => {
+        this.movies = response.results.map((movie: Movie) => ({
           ...movie,
           isVisible: true,
           slug: this.slugify(movie.title),
-        })))
-    );
+        }));
+
+        // update loading status
+        this.fetching = false;
+      });
+  }
+
+  isFetching(): boolean {
+    return this.fetching;
   }
 
   getMovies(): Movie[] {

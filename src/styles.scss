@@ -9,3 +9,15 @@ body {
     word-spacing: 5px;
   }
 }
+.loader {
+  animation: rotate 1500ms linear infinite;
+  padding-bottom: 2px;
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

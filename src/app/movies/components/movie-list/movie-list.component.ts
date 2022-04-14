@@ -14,6 +14,10 @@ export class MovieListComponent {
 
   constructor(private movieService: MovieService) {}
 
+  isFetching(): boolean {
+    return this.movieService.isFetching();
+  }
+
   getMovies(): Movie[] {
     return this.movieService.getMovies();
   }
