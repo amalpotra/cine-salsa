@@ -9,6 +9,7 @@
   cursor: pointer;
 
   &:hover {
+    transform: scale(1.01);
     .drop-fade {
       height: 110px;
     }
