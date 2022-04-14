@@ -1,6 +1,6 @@
-<div class="container-fluid pt-3 my-5">
-  <ng-container *ngIf="!isFetching(); else loading_message">
-    <ng-container *ngIf="getMovies().length; else fallback_message">
+<ng-container *ngIf="!isFetching(); else loading_message">
+  <ng-container *ngIf="getMovies().length; else fallback_message">
+    <div class="container-fluid pt-3 my-5">
       <app-filter-bar [filterBy]="'Rating'">
         <app-filter-button *ngFor="let filterBy of [7, 5, 3]; let index = index" [title]="'>' + filterBy"
           (filter)="filterMoviesByRating(filterBy); selectedFilter = index" (deFilter)="deFilterMovies()"
@@ -12,12 +12,12 @@
           <app-movie-card *ngIf="movie.isVisible" [movie]="movie"></app-movie-card>
         </ng-container>
       </div>
-    </ng-container>
+    </div>
   </ng-container>
-</div>
+</ng-container>
 
 <ng-template #fallback_message>
-  <div class="d-flex flex-column align-items-center mt-4">
+  <div class="d-flex flex-column align-items-center mt-5 pt-4">
     <span class="fw-bold display-4">Oh no!</span>
     <div class="fs-5">It's so lonely here</div>
     <a href="/" class="link-light text-decoration-none fs-6 mt-2">
@@ -27,7 +27,7 @@
 </ng-template>
 
 <ng-template #loading_message>
-  <div class="d-flex justify-content-center fw-bold fs-1 mt-4">
+  <div class="d-flex justify-content-center fw-bold fs-1 mt-5 pt-4">
     <fa-icon [icon]="faArrowsRotate" class="loader me-2"></fa-icon>
     Loading...
   </div>
