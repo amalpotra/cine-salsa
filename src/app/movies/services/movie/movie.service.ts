@@ -2,12 +2,15 @@ import { Injectable } from '@angular/core';
 import { FetchContentService } from 'src/app/shared/services/fetch-content/fetch-content.service';
 import Movie from '../../models/movie';
 import MovieResponse from '../../models/movieResponse';
+import MovieGenre from '../../models/movieGenre';
+import MovieGenreResponse from '../../models/movieGenreResponse';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MovieService {
   private movies: Movie[] = [];
+  private genres: MovieGenre[] = [];
   private fetching: boolean = false;
 
   constructor(private fetchContentService: FetchContentService) {
@@ -15,7 +18,7 @@ export class MovieService {
     this.fetching = true;
 
     this.fetchContentService
-      .getMovies()
+      .fetchMovies()
       .subscribe((response: MovieResponse) => {
         this.movies = response.results.map((movie: Movie) => ({
           ...movie,
@@ -66,5 +69,17 @@ export class MovieService {
 
   getMovieBySlug(slug: string): Movie | undefined {
     return this.movies.find((movie: Movie) => movie.slug === slug);
+  }
+
+  fetchMovieGenres(): void {
+    this.fetchContentService
+      .fetchMovieGenres()
+      .subscribe((response: MovieGenreResponse) => {
+        this.genres = response.genres;
+      });
+  }
+
+  getMovieGenres(): MovieGenre[] {
+    return this.genres;
   }
 }

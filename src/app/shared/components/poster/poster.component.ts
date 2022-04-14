@@ -13,6 +13,6 @@ export class PosterComponent {
   constructor() {}
 
   posterUrlBuilder(width: number, source: string): string {
-    return `${environment.apiPosterURL}w${width}/${source}`;
+    return `${environment.apiImageURL}w${width}${source}`;
   }
 }
