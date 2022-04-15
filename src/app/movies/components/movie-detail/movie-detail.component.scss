@@ -1,0 +1,18 @@
+.movie-detail-poster {
+  width: 50vh;
+  filter: drop-shadow(0 0 7px #000);
+  border-radius: 4px;
+  overflow: hidden;
+}
+@media only screen and (min-width: 768px) {
+  .poster-col {
+    border-right: 1px solid #fff;
+  }
+}
+.movie-detail {
+  height: 100vh;
+  background-size: cover !important;
+}
+.year {
+  color: #ccc;
+}
