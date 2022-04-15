@@ -2,7 +2,7 @@
     <ng-container *ngIf="getMovie(); let movie; else fallback_message">
         <div [style.background-image]="backdropBuilder(movie.backdrop_path)" class="container-fluid py-5 movie-detail">
             <div class=" d-flex justify-content-end p-3">
-                <a routerLink="/movies" class="link-light text-decoration-none fs-6 mt-2 back-btn">
+                <a routerLink="/movies" class="link-light text-decoration-none mt-2 back-btn">
                     <fa-icon [icon]="faArrowLeft"></fa-icon> Back
                 </a>
             </div>
@@ -13,7 +13,7 @@
                         </app-poster>
                     </div>
                 </div>
-                <div class="col-md-7 px-5 pt-2">
+                <div class="col-md-7 p-4 pt-2">
                     <div class="fw-bold fs-2 mb-4">{{movie.title}}
                         <span *ngIf="movie.release_date" class="fw-normal fs-5 year">
                             ({{movie.release_date.slice(0,4)}})
@@ -21,14 +21,14 @@
                     </div>
                     <div class="my-4">{{movie.overview}}</div>
                     <div class="my-2">
-                        <span class="fw-bold fs-6">Original Language :</span>
+                        <span class="fw-bold">Original Language:</span>
                         {{getLanguageName(movie.original_language)}}
                     </div>
                     <div class="my-2">
-                        <span class="fw-bold fs-6">Release Date : </span>{{movie.release_date || 'N/A'}}
+                        <span class="fw-bold">Release Date: </span>{{movie.release_date || 'N/A'}}
                     </div>
                     <div class="d-flex align-items-center my-2">
-                        <span class="fw-bold fs-6">Genre :</span>
+                        <span class="fw-bold">Genre:</span>
                         <div class="ms-2 genre" *ngFor="let genre of getGenresByIds(movie.genre_ids); let last = last">
                             {{genre}}<span *ngIf="!last">,</span>
                         </div>
@@ -47,7 +47,7 @@
     <div class="d-flex flex-column align-items-center mt-5 pt-4">
         <span class="fw-bold display-4">Oh no!</span>
         <div class="fs-5">You seeem to be lost</div>
-        <a routerLink="/movies" class="link-light text-decoration-none fs-6 mt-2 back-btn">
+        <a routerLink="/movies" class="link-light text-decoration-none mt-2 back-btn">
             <fa-icon [icon]="faArrowLeft"></fa-icon> Reroute
         </a>
     </div>
