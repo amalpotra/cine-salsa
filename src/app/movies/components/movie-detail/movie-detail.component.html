@@ -21,7 +21,8 @@
                     </div>
                     <div class="my-4">{{movie.overview}}</div>
                     <div class="my-2">
-                        <span class="fw-bold fs-6">Original Language : </span>{{movie.original_language}}
+                        <span class="fw-bold fs-6">Original Language :</span>
+                        {{getLanguageName(movie.original_language)}}
                     </div>
                     <div class="my-2">
                         <span class="fw-bold fs-6">Release Date : </span>{{movie.release_date || 'N/A'}}

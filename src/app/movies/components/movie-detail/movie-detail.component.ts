@@ -14,6 +14,7 @@ import MovieGenre from '../../models/movieGenre';
 export class MovieDetailComponent implements OnInit {
   faArrowLeft = faArrowLeft;
   faArrowsRotate = faArrowsRotate;
+  languageName = new Intl.DisplayNames(['en'], { type: 'language' });
 
   constructor(
     private movieService: MovieService,
@@ -44,5 +45,9 @@ export class MovieDetailComponent implements OnInit {
           .getMovieGenres()
           .find((genre: MovieGenre) => genreId === genre.id)?.name
     );
+  }
+
+  getLanguageName(isoCode: string) {
+    return this.languageName.of(isoCode);
   }
 }
