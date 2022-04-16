@@ -8,6 +8,7 @@ import { PosterComponent } from './components/poster/poster.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FilterBarComponent } from './components/filter-bar/filter-bar.component';
 import { FilterButtonComponent } from './components/filter-button/filter-button.component';
+import { RatingBarComponent } from './components/rating-bar/rating-bar.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { FilterButtonComponent } from './components/filter-button/filter-button.
     PosterComponent,
     FilterBarComponent,
     FilterButtonComponent,
+    RatingBarComponent,
   ],
   imports: [CommonModule, RouterModule, HttpClientModule, FontAwesomeModule],
   exports: [
@@ -23,6 +25,7 @@ import { FilterButtonComponent } from './components/filter-button/filter-button.
     PosterComponent,
     FilterBarComponent,
     FilterButtonComponent,
+    RatingBarComponent,
   ],
 })
 export class SharedModule {}
