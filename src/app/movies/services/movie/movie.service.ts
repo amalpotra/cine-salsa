@@ -67,7 +67,7 @@ export class MovieService {
       .replace(/[^\w-]+/g, '');
   }
 
-  getMovieBySlug(slug: string): Movie | undefined {
+  getMovieBySlug(slug: string) {
     return this.movies.find((movie: Movie) => movie.slug === slug);
   }
 

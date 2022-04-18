@@ -30,7 +30,7 @@ export class MovieDetailComponent implements OnInit {
     return this.movieService.isFetching();
   }
 
-  getMovie(): Movie | undefined {
+  getMovie() {
     return this.movieService.getMovieBySlug(
       this.route.snapshot.params['title']
     );
