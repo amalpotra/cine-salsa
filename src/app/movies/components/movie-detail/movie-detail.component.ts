@@ -31,7 +31,9 @@ export class MovieDetailComponent implements OnInit {
   }
 
   getMovie(): Movie | undefined {
-    return this.movieService.getMovieBySlug(this.route.snapshot.url[0].path);
+    return this.movieService.getMovieBySlug(
+      this.route.snapshot.params['title']
+    );
   }
 
   backdropBuilder(backdropPath: string): string {
